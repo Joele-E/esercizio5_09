@@ -1,4 +1,5 @@
 import React from "react";
+import Count from "./Count";
 
 export default class Counter extends React.Component {
   state = {
@@ -19,7 +20,9 @@ export default class Counter extends React.Component {
   render() {
     return (
       <div>
-        <h1>The count is {this.state.counter}</h1>
+        <h1>
+          The count is <Count counter={this.state.counter} />
+        </h1>
       </div>
     );
   }
