@@ -1,11 +1,15 @@
 import React from "react";
-import InteractiveWelcome from "./InteractiveWelcome";
+import Login from "./Login";
 
 export default class App extends React.Component {
   render() {
     return (
       <div>
-        <InteractiveWelcome />
+        <Login
+          onLogin={() => {
+            console.log("I AM WORKING");
+          }}
+        />
       </div>
     );
   }

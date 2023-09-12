@@ -7,6 +7,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
 /* 
-Create an InteractiveWelcome component that renders an input tag and the Welcome component. 
-Pass the current content of the input tag to the name prop of
- the Welcome component. The input tag should be a controlled component. */
+Add a "login" button to the Login component. This button should be disabled as long as the username 
+and password inputs are empty. When clicked, the event handler attached to the 
+button should call an onLogin function passed as a prop to the Login component, passing it the state. */
