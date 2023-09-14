@@ -1,51 +1,29 @@
+import { createRef } from "react";
 import React from "react";
 
 export default class Login extends React.Component {
-  state = {
-    username: "",
-    password: "",
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let username = event.target.elements.username.value;
+    let password = event.target.elements.password.value;
+    console.log(username, password);
   };
 
-  handleInput = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  handleReset = () => {
-    this.setState({
-      username: "",
-      password: "",
-    });
-  };
   render() {
     return (
       <div>
-        <input
-          name="username"
-          type="text"
-          onChange={this.handleInput}
-          value={this.state.username}
-        />
-        <input
-          name="password"
-          type="password"
-          onChange={this.handleInput}
-          value={this.state.password}
-        />
+        <form ref={this._formRef} onSubmit={this.handleSubmit}>
+          <input name="username" type="text" />
+          <input name="password" type="password" />
 
-        <button
-          disabled={
-            this.state.username !== "" && this.state.password !== ""
-              ? false
-              : true
-          }
-          onClick={this.props.onLogin}
-        >
-          Login
-        </button>
-        <button onClick={this.handleReset}>Reset</button>
+          <button type="submit">Login</button>
+          <button type="reset">reset</button>
+        </form>
       </div>
     );
   }
 }
 
 /* 
-Add a "reset" button to the Login component that clears the content of all three inputs when clicked */
+Implement an UncontrolledLogin component that implements all the operations of the Login component, 
+but does so using uncontrolled components.*/
