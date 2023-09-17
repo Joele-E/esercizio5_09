@@ -2,7 +2,7 @@ import React from "react";
 
 export default class TodoList extends React.Component {
   state = {
-    items: ["ciao", "oaic"],
+    items: [],
     currentTodo: "",
   };
 
@@ -16,12 +16,29 @@ export default class TodoList extends React.Component {
   clearList = () => {
     this.setState({ items: [] });
   };
+  handleRemove = (event, index) => {
+    let key = index;
+
+    let todoItems = this.state.items;
+    let slicedArr = todoItems.splice(key, 1);
+
+    this.setState({ items: todoItems });
+  };
   render() {
     return (
       <div>
         <ul>
-          {this.state.items.map((todo) => (
-            <li>{todo}</li>
+          {this.state.items.map((todo, index) => (
+            <li key={index}>
+              {todo}
+              <button
+                onClick={(event) => {
+                  this.handleRemove(event, index);
+                }}
+              >
+                Remove
+              </button>
+            </li>
           ))}
         </ul>
 
