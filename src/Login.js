@@ -13,7 +13,7 @@ export default class Login extends React.Component {
     return (
       <div>
         <form ref={this._formRef} onSubmit={this.handleSubmit}>
-          <input name="username" type="text" />
+          <input name="username" type="text" autoFocus />
           <input name="password" type="password" />
 
           <button type="submit">Login</button>
