@@ -13,6 +13,9 @@ export default class TodoList extends React.Component {
     this.setState({ items: [...this.state.items, this.state.currentTodo] });
     this.setState({ currentTodo: "" });
   };
+  clearList = () => {
+    this.setState({ items: [] });
+  };
   render() {
     return (
       <div>
@@ -28,6 +31,7 @@ export default class TodoList extends React.Component {
           value={this.state.currentTodo}
         />
         <button onClick={this.handleAdd}>ADD</button>
+        <button onClick={this.clearList}>CLEAR</button>
       </div>
     );
   }
