@@ -1,50 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default class Login extends React.Component {
-  state = {
+export default function Login() {
+  const [formData, setFormData] = useState({
     username: "",
     password: "",
-  };
+  });
 
-  handleInput = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-  handleReset = () => {
-    this.setState({
+  function handleInput(event) {
+    let newData = {};
+    setFormData((formData) => {
+      return {
+        ...formData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  }
+  function handleReset() {
+    setFormData({
       username: "",
       password: "",
     });
-  };
-  render() {
-    return (
-      <div>
-        <input
-          name="username"
-          type="text"
-          onChange={this.handleInput}
-          value={this.state.username}
-        />
-        <input
-          name="password"
-          type="password"
-          onChange={this.handleInput}
-          value={this.state.password}
-        />
-
-        <button
-          disabled={
-            this.state.username !== "" && this.state.password !== ""
-              ? false
-              : true
-          }
-          onClick={this.props.onLogin}
-        >
-          Login
-        </button>
-        <button onClick={this.handleReset}>Reset</button>
-      </div>
-    );
   }
+
+  return (
+    <div>
+      <input
+        name="username"
+        type="text"
+        onChange={handleInput}
+        value={formData["username"]}
+      />
+      <input
+        name="password"
+        type="password"
+        onChange={handleInput}
+        value={formData["password"]}
+      />
+
+      <button
+        disabled={
+          formData["username"] !== "" && formData["password"] !== ""
+            ? false
+            : true
+        }
+        onClick={() => console.log(formData)}
+      >
+        Login
+      </button>
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  );
 }
 
 /* 
