@@ -1,7 +1,10 @@
 import React from "react";
+import GithubUser from "./GithubUser";
 
-export default class App extends React.Component {
-  render() {
-    return <div></div>;
-  }
+export default function App() {
+  return (
+    <div>
+      <GithubUser username={"Joele-E"} />
+    </div>
+  );
 }
