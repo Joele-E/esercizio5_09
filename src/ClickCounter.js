@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default class ClickCounter extends React.Component {
-  state = {
-    count: 0,
-  };
+export default function ClickCounter() {
+  const [count, setCount] = useState(1);
 
-  addCount = () => {
-    this.setState({ count: this.state.count + 1 });
-  };
-  render() {
-    return (
-      <div>
-        <p>The count is: {this.state.count}</p>
-        <button onClick={this.addCount}>INCREMENTA</button>
-      </div>
-    );
+  function addCount() {
+    setCount(count + 1);
   }
+
+  return (
+    <div>
+      <p>The count is: {count}</p>
+      <button onClick={addCount}>INCREMENTA</button>
+    </div>
+  );
 }
