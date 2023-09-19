@@ -1,14 +1,16 @@
 import React from "react";
 import ClickCounter from "./ClickCounter";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <ClickCounter />
-      </div>
-    );
+export default function App() {
+  function handleCount(count) {
+    console.log("The count is", count);
   }
+
+  return (
+    <div>
+      <ClickCounter onCounterChange={handleCount} />
+    </div>
+  );
 }
 
 /* Create a ClickCounter class component that increments a counter every time a user 
