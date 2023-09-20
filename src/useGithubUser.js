@@ -4,7 +4,20 @@ export default function useGithubUser(username) {
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+  async function fetchGithubUser() {
+    let url = `https://api.github.com/users/${username}`;
+
+    try {
+      let response = await fetch(url);
+      let json = await response.json();
+      setUserData(json);
+    } catch (error) {
+      setError(error);
+      setUserData(null);
+    }
+  }
+
+  /*   useEffect(() => {
     let url = `https://api.github.com/users/${username}`;
     fetch(url)
       .then((res) => {
@@ -19,9 +32,10 @@ export default function useGithubUser(username) {
       })
       .catch((err) => setError(err));
   }, [username]);
-
+ */
   return {
     userData: userData,
     error: error,
+    onFetch: fetchGithubUser,
   };
 }

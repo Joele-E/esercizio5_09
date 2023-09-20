@@ -1,11 +1,12 @@
 import useGithubUser from "./useGithubUser";
 
 export default function GithubUser({ username }) {
-  let { userData, error } = useGithubUser(username);
+  let { userData, error, onFetch } = useGithubUser(username);
 
   return (
     !error && (
       <div>
+        <button onClick={onFetch}>Fetch</button>
         <div
           style={{
             backgroundColor: "green",
