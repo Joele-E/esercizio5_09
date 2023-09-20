@@ -1,10 +1,11 @@
 import React from "react";
 import GithubUser from "./GithubUser";
+import GithubUserList from "./GithubUserList";
 
 export default function App() {
   return (
     <div>
-      <GithubUser username={"Joele-E"} />
+      <GithubUserList username={"Joele-E"} />
     </div>
   );
 }
