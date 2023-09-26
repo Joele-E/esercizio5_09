@@ -7,12 +7,12 @@ const GithubUser = ({ user }) => {
     `https://api.github.com/users/${user}`,
     fetcher
   );
-  console.log(data);
+  data ? console.log(data) : console.log("loading...");
 
   return (
     <div>
-      <h1>Login: {data.login}</h1>
-      <h3>Creato: {data.created_at}</h3>
+      <h1>Login: {data ? data.login : "LOADING..."}</h1>
+      <h3>Creato: {data ? data.created_at : "LOADING..."}</h3>
     </div>
   );
 };
