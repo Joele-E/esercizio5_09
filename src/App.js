@@ -4,6 +4,7 @@ import Users from "./Users";
 import User from "./User";
 import Home from "./Home";
 import ShowGithubUser from "./ShowGithubUser";
+import NotFound from "./NotFound";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
       </Link>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="users" element={<Users />}>
           <Route path=":username" element={<ShowGithubUser />} />
         </Route>
