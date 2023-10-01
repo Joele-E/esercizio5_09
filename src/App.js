@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route path="users" element={<Users />}>
+          <Route index element={<div>Add a user and select it</div>} />
           <Route path=":username" element={<ShowGithubUser />} />
         </Route>
       </Routes>
