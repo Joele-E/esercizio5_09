@@ -6,7 +6,8 @@ const Users = () => {
     <div>
       <h1>USERS</h1>
       <Outlet />
-      <Link to={"/"}>HOME</Link>
+      <Link to={"/users/asdf"}>USER asdf</Link>
+      <br />
     </div>
   );
 };
