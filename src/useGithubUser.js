@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
+import useSWR, { mutate } from "swr";
 
 export default function useGithubUser(username) {
-  const [userData, setUserData] = useState(null);
-  const [error, setError] = useState(null);
+  /* const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null); */
 
-  async function fetchGithubUser() {
+  let fetcher = (url) => fetch(url).then((r) => r.json());
+  let { data, error } = useSWR(
+    `https://api.github.com/users/${username}`,
+    fetcher
+  );
+
+  function fetchGithubUser() {
+    mutate();
+  }
+
+  /*  async function fetchGithubUser() {
     let url = `https://api.github.com/users/${username}`;
 
     try {
@@ -15,7 +26,7 @@ export default function useGithubUser(username) {
       setError(error);
       setUserData(null);
     }
-  }
+  } */
 
   /*   useEffect(() => {
     let url = `https://api.github.com/users/${username}`;
@@ -34,7 +45,7 @@ export default function useGithubUser(username) {
   }, [username]);
  */
   return {
-    userData: userData,
+    userData: data,
     error: error,
     onFetch: fetchGithubUser,
   };

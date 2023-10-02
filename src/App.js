@@ -4,7 +4,7 @@ import GithubUser from "./GithubUser";
 export default function App() {
   return (
     <div>
-      <GithubUser username={"Joele-E"} />
+      <GithubUser username={"asdf"} />
     </div>
   );
 }
