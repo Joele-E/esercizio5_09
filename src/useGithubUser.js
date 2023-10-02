@@ -7,7 +7,7 @@ export default function useGithubUser(username) {
 
   let fetcher = (url) => fetch(url).then((r) => r.json());
   let { data, error } = useSWR(
-    `https://api.github.com/users/${username}`,
+    username !== null ? `https://api.github.com/users/${username}` : null,
     fetcher
   );
 
