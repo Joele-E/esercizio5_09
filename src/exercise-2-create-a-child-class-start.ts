@@ -38,6 +38,7 @@ class DetailedCurrency extends Currency {
     super(name, code, symbol);
 
     // Store the value of the `banknotes` parameter in the corresponding field.
+    this.banknotes = banknotes;
   }
 
   // Change the visibility modifier on this method so it can be called
