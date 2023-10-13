@@ -15,6 +15,8 @@ class Currency {
 
   constructor(name: string, code: string, symbol: string) {
     this.name = name;
+    this.code = code;
+    this.symbol = symbol;
 
     // Store the `code` and `symbol` parameter values in
     // their corresponding class fields.
